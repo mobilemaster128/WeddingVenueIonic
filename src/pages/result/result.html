@@ -1,0 +1,48 @@
+<!--
+  Generated template for the SearchResultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Search Results</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="viewtype">
+            <ion-segment-button value="list" (click)="listView()">
+                LIST
+            </ion-segment-button>
+            <ion-segment-button value="map" (click)="mapView()">
+                MAP
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="viewtype=='list'">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list *ngIf="viewtype=='list'">
+        <ion-card *ngFor="let venue of venues" (click)="gotoDetail(venue)">
+            <img src="{{serverURL}}{{venue.Picture}}" onError="this.src='assets/img/noimage.png';" />
+            <ion-card-content no-padding>
+                <ion-card-title no-padding>
+                    {{venue.VenueName}}
+                </ion-card-title>
+                <p>
+                    {{venue.Address}}
+                </p>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+
+    <div #map id="map"></div>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="!isAll && viewtype=='list'">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

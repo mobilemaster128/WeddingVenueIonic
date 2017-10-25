@@ -1,0 +1,57 @@
+<!--
+  Generated template for the LocationDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Location Details</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card *ngIf="venue">
+        <ion-slides autoplay="2000" effect="fade" loop="true">
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict1}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict2}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict3}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict4}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict5}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict6}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+            <ion-slide>
+                <img src="{{serverURL}}{{venue.Pict7}}" onError="this.src='assets/img/noimage.png';" />
+            </ion-slide>
+        </ion-slides>
+        <ion-card-content>
+            <ion-card-title>
+                {{venue.VenueName}}
+            </ion-card-title>
+            <p>
+                {{venue.Address}}<br/> {{venue.City}}&nbsp;{{venue.StateStr}}&nbsp;{{venue.ZipCode}}&nbsp;{{venue.CountryStr}}
+                <br/> {{venue.Phone}}
+                <br/> {{venue.Email}}<br/>{{venue.Description}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+
+    <button ion-button block class="primary" (click)="see_map()">See the Map Location</button>
+    <button ion-button block class="primary" (click)="request()">Request Availability</button>
+    <button ion-button block class="primary" (click)="calendar()">View Calendar</button>
+</ion-content>

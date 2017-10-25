@@ -1,0 +1,9 @@
+{
+    "name": "WeddingVenue",
+    "app_id": "",
+    "proxies": [{
+        "path": "/Service",
+        "proxyUrl": "https://www.worldclassweddingvenues.com/Specdev/WeddingVenues/Service/"
+    }],
+    "type": "ionic-angular"
+}

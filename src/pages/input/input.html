@@ -1,0 +1,68 @@
+<!--
+  Generated template for the InputInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Locate Wedding Venues</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label fixed>Country</ion-label>
+        <ion-input type="text" [(ngModel)]="event.country" placeholder="United States"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>State</ion-label>
+        <ion-input type="text" [(ngModel)]="event.state" placeholder="Cupertino"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>City</ion-label>
+        <ion-input type="text" [(ngModel)]="event.city" placeholder="CA"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Street</ion-label>
+        <ion-input type="text" [(ngModel)]="event.street" placeholder="Street Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Zip</ion-label>
+        <ion-input type="text" [(ngModel)]="event.zip" placeholder="10018"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Zip Radius</ion-label>
+        <ion-input type="number" [(ngModel)]="event.radius" placeholder="50 Miles"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Start Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" min="2017-07-01" max="2030-12-31" [(ngModel)]="event.startDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>End Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" min="2017-07-01" [(ngModel)]="event.endDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Keywords</ion-label>
+        <ion-select [(ngModel)]="event.keywords" multiple="true">
+            <ion-option text-left value="{{keyword.RecordID}}" *ngFor="let keyword of keywords">{{keyword.Keyword}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <button ion-button block class="primary" (click)="find_venues()">Find Venues</button>
+
+    <button ion-button block class="primary" (click)="use_gps()">Use my GPS/Location</button>
+
+</ion-content>

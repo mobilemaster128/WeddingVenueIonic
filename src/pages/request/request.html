@@ -1,0 +1,51 @@
+<!--
+  Generated template for the RequestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Request</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <img src="{{serverURL}}{{picture}}" onError="this.src='assets/img/noimage.png';" />
+    </ion-card>
+
+    <ion-item>
+        <ion-label fixed>Start Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="event.startDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>End Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="event.endDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Your Name</ion-label>
+        <ion-input type="text" placeholder="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Number of Guest</ion-label>
+        <ion-input type="number" placeholder="200"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Event Type</ion-label>
+        <ion-input type="text" placeholder="Ceremony"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Comments</ion-label>
+        <ion-input type="text" placeholder="Comments"></ion-input>
+    </ion-item>
+
+    <button ion-button block class="primary" (click)="request()">Request Availability</button>
+</ion-content>
